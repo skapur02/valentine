@@ -1,0 +1,14 @@
+body { 
+    text-align: center; 
+    font-family: 'Helvetica', cursive; 
+    background-color: pink; 
+}
+.hidden { display: none; }
+button { 
+    padding: 10px 20px; 
+    margin: 10px; 
+    cursor: pointer; 
+    font-size: 20px; 
+    border-radius: 10px;
+}
+#noButton { position: absolute; }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Valentine's Scavenger Hunt</title>
+    <style>
+        body { 
+            text-align: center; 
+            font-family: Helvetica, sans-serif; 
+            font-weight: bold; 
+            background-color: pink; 
+        }
+        h2, p {
+            font-family: Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        .hidden { display: none; }
+        button { padding: 10px 20px; margin: 10px; cursor: pointer; }
+        #noButton { position: absolute; }
+    </style>
+    <script>
+        function startGame(answer) {
+            if (answer === 'yes') {
+                document.getElementById('start').classList.add('hidden');
+                document.getElementById('clue1').classList.remove('hidden');
+            } else {
+                moveNoButton();
+            }
+        }
+        
+        function moveNoButton() {
+            let button = document.getElementById('noButton');
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 50);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+        
+        function nextClue(current, next) {
+            document.getElementById(current).classList.add('hidden');
+            document.getElementById(next).classList.remove('hidden');
+        }
+    </script>
+</head>
+<body>
+    <div id="start">
+        <img src="heart.png" alt="Heart" width="500">
+        <h1>Will you be my Valentine?</h1>
+        <button onclick="startGame('yes')">YES</button>
+        <button id="noButton" onclick="startGame('no')">NO</button>
+    </div>
+    
+    <div id="clue1" class="hidden">
+        <h2>YAY! Go downstairs your to collect your gift 🏃</h2>
+        <button onclick="nextClue('clue1', 'final')">I got it!</button>
+    </div>
+    
+    <div id="final" class="hidden">
+        <h1>HAPPY VALENTINES AND HAPPY BIRTHDAY🎉❤️</h1>
+        <p>I hope you enjoy your present!</p>
+    </div>
+</body>
+</html>
+
